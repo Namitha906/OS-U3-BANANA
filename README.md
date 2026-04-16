@@ -73,7 +73,7 @@ cat /proc/self/maps
 Take a moment to read the columns: `address-range  perms  offset  dev  inode  pathname`. You'll see these a lot.
 
 ```bash
-# Now let's write a program that prints where each region lives
+
 
 #include <stdio.h>
 #include <stdlib.h>
