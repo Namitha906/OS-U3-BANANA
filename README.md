@@ -74,7 +74,7 @@ Take a moment to read the columns: `address-range  perms  offset  dev  inode  pa
 
 ```bash
 # Now let's write a program that prints where each region lives
-cat << 'EOF' > layout.c
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -106,9 +106,7 @@ int main(void) {
     free(heap_var);
     return 0;
 }
-EOF
-gcc -o layout layout.c -no-pie
-./layout
+
 ```
 
 You should see six addresses. Text, Rodata, Data, and BSS will cluster together down low (around `0x400000`). The heap sits just above them. The stack is way up in high memory (around `0x7FFF...`). The gap between the heap and stack is absurdly large - we're talking thousands of GB of virtual space that doesn't map to anything.
